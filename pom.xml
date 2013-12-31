@@ -61,8 +61,8 @@
 	</profiles>
 	<name>walkmod-import-cleaner-plugin</name>
 	<scm>
-		<url>https://github.com/rpau/javalang</url>
-		<connection>https://github.com/rpau/javalang.git</connection>
+		<url>https://github.com/rpau/walkmod-imports-cleaner-plugin</url>
+		<connection>https://github.com/rpau/walkmod-imports-cleaner-plugin.git</connection>
 	</scm>
 	<developers>
 		<developer>

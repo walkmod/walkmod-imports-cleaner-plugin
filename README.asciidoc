@@ -1,6 +1,8 @@
 walkmod-imports-cleaner-plugin
 ==============================
-The walkmod-imports-cleaner-plugin is a walkmod plugin to remove unused imports in Java source files. It does not remove static or wildcard imports.
+Raquel Pau <raquelpau@gmail.com>
+
+This is a walkmod plugin to remove unused imports in Java source files. It does not remove static or wildcard imports.
 
 == Usage
 

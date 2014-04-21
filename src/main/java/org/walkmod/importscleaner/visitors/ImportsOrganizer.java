@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
-import org.walkmod.javalang.ASTManager;
+import org.walkmod.javalang.JavadocManager;
 import org.walkmod.javalang.ast.CompilationUnit;
 import org.walkmod.javalang.ast.ImportDeclaration;
 import org.walkmod.javalang.ast.body.JavadocComment;
@@ -56,7 +56,7 @@ public class ImportsOrganizer extends VoidVisitorAdapter<VisitorContext> {
 
 	public void visit(JavadocComment n, VisitorContext ctx) {
 		try {
-			List<JavadocTag> tags = ASTManager.getTags(n.getContent());
+			List<JavadocTag> tags = JavadocManager.parse(n.getContent());
 
 			if (tags != null) {
 				for (JavadocTag tag : tags) {

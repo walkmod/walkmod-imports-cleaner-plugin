@@ -3,6 +3,9 @@
    "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<bean id="org.walkmod:walkmod-imports-cleaner-plugin:import-cleaner" 
-	class="org.walkmod.importscleaner.visitors.ImportsOrganizer"></bean>
+	<bean id="org.walkmod:walkmod-imports-cleaner-plugin:import-cleaner"
+		class="org.walkmod.importscleaner.visitors.ImportsOrganizer"></bean>
+
+	<alias name="org.walkmod:walkmod-imports-cleaner-plugin:import-cleaner"
+		alias="walkmod:commons:import-cleaner" />
 </beans>

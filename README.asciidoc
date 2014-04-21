@@ -2,6 +2,8 @@ walkmod-imports-cleaner-plugin
 ==============================
 Raquel Pau <raquelpau@gmail.com>
 
+image:https://travis-ci.org/rpau/walkmod-imports-cleaner-plugin.svg?branch=master["Build Status", link="https://travis-ci.org/rpau/walkmod-imports-cleaner-plugin"]
+
 This is a walkmod plugin to remove unused imports in Java source files. It does not remove static or wildcard imports.
 
 == Usage

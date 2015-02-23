@@ -54,6 +54,35 @@ public class ImportsOrganizer extends VoidVisitorAdapter<VisitorContext> {
 		super.visit(n, ctx);
 	}
 
+	private void processReference(String type) {
+		if (type != null) {
+			String[] split = type.split("#");
+			String typeName = split[0];
+			if (!"".equals(typeName)) {
+				referencedTypes.add(typeName.trim());
+			}
+			if (split.length == 2) {
+				String signature = split[1];
+				int start = signature.indexOf("(");
+				if (start > 0 && signature.endsWith(")")) {
+					signature = signature.substring(start + 1,
+							signature.length() - 1);
+					String[] params = signature.split(",");
+					if (params != null) {
+						for (String param : params) {
+							if (!"".equals(param)) {
+								if(param.endsWith("[]")){
+									param = param.substring(0, param.length()-2);
+								}
+								referencedTypes.add(param.trim());
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	public void visit(JavadocComment n, VisitorContext ctx) {
 		try {
 			List<JavadocTag> tags = JavadocManager.parse(n.getContent());
@@ -66,12 +95,8 @@ public class ImportsOrganizer extends VoidVisitorAdapter<VisitorContext> {
 						List<String> values = tag.getValues();
 						if (values != null) {
 							String type = values.get(0);
-							if (type != null) {
-								String typeName = type.split("#")[0];
-								if (!"".equals(typeName)) {
-									referencedTypes.add(typeName);
-								}
-							}
+							processReference(type);
+							
 						}
 					} else if ("@see".equals(name)) {
 						List<String> values = tag.getValues();
@@ -79,10 +104,8 @@ public class ImportsOrganizer extends VoidVisitorAdapter<VisitorContext> {
 							String type = values.get(0);
 							if (type != null && !type.startsWith("<")
 									&& !type.startsWith("\"")) {
-								String typeName = type.split("#")[0];
-								if (!"".equals(typeName)) {
-									referencedTypes.add(typeName);
-								}
+								processReference(type);
+								
 							}
 						}
 					}
@@ -128,8 +151,8 @@ public class ImportsOrganizer extends VoidVisitorAdapter<VisitorContext> {
 			n.setImports(cleanImportList);
 		}
 	}
-	
-	public Set<String> getReferencedTypes(){
+
+	public Set<String> getReferencedTypes() {
 		return referencedTypes;
 	}
 }

@@ -61,13 +61,14 @@ public class ImportsOrganizer extends VoidVisitorAdapter<VisitorContext> {
 			if (tags != null) {
 				for (JavadocTag tag : tags) {
 					String name = tag.getName();
-					if ("@link".equals(name) || "@linkplain".equals(name)) {
+					if ("@link".equals(name) || "@linkplain".equals(name)
+							|| "@throws".equals(name)) {
 						List<String> values = tag.getValues();
 						if (values != null) {
 							String type = values.get(0);
 							if (type != null) {
 								String typeName = type.split("#")[0];
-								if(!"".equals(typeName)){
+								if (!"".equals(typeName)) {
 									referencedTypes.add(typeName);
 								}
 							}
@@ -79,7 +80,7 @@ public class ImportsOrganizer extends VoidVisitorAdapter<VisitorContext> {
 							if (type != null && !type.startsWith("<")
 									&& !type.startsWith("\"")) {
 								String typeName = type.split("#")[0];
-								if(!"".equals(typeName)){
+								if (!"".equals(typeName)) {
 									referencedTypes.add(typeName);
 								}
 							}
@@ -126,5 +127,9 @@ public class ImportsOrganizer extends VoidVisitorAdapter<VisitorContext> {
 			}
 			n.setImports(cleanImportList);
 		}
+	}
+	
+	public Set<String> getReferencedTypes(){
+		return referencedTypes;
 	}
 }

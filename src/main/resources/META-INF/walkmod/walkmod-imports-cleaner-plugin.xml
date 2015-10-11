@@ -8,4 +8,7 @@
 
 	<alias name="org.walkmod:walkmod-imports-cleaner-plugin:import-cleaner"
 		alias="walkmod:commons:import-cleaner" />
+		
+	<alias name="org.walkmod:walkmod-imports-cleaner-plugin:import-cleaner"
+		alias="org.walkmod:walkmod-imports-cleaner-plugin:imports-cleaner" />
 </beans>

@@ -15,7 +15,7 @@ your `${PROJECT}/walkmod.xml` file.
 <!DOCTYPE walkmod PUBLIC "-//WALKMOD//DTD"  "http://www.walkmod.com/dtd/walkmod-1.0.dtd" >
 <walkmod>
   <plugins>
-    <plugin groupId="org.walkmod" artifactId="walkmod-imports-cleaner-plugin" version="2.0.2" />
+    <plugin groupId="org.walkmod" artifactId="walkmod-imports-cleaner-plugin" version="2.0.3" />
   </plugins>
   <transformation type="walkmod:commons:import-cleaner" />
 </walkmod>

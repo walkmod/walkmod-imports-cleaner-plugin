@@ -7,24 +7,22 @@ image:https://travis-ci.org/rpau/walkmod-imports-cleaner-plugin.svg?branch=maste
 This is a walkmod plugin to remove unused imports in Java source files. It does not remove static or wildcard imports.
 
 == Usage
+1) Verify that your walkmod version is > = 2.0
 
-You can apply walkmod-imports-cleaner-plugin via  http://www.walkmod.com[walkmod] You just need to add the plugin and the transformation tag in 
+2) You can apply walkmod-imports-cleaner-plugin via  http://www.walkmod.com[walkmod] You just need to add the transformation tag in 
 your `${PROJECT}/walkmod.xml` file. 
 
-----
-<!DOCTYPE walkmod PUBLIC "-//WALKMOD//DTD"  "http://www.walkmod.com/dtd/walkmod-1.0.dtd" >
+```XML
+<!DOCTYPE walkmod PUBLIC "-//WALKMOD//DTD"  "http://www.walkmod.com/dtd/walkmod-1.1.dtd" >
 <walkmod>
-  <plugins>
-    <plugin groupId="org.walkmod" artifactId="walkmod-imports-cleaner-plugin" version="2.0.2" />
-  </plugins>
-  <transformation type="walkmod:commons:import-cleaner" />
+  <transformation type="imports-cleaner" />
 </walkmod>
-----
+```
 Remember, by default, walkmod takes your source files from your `src/main/java` directory. So, if you need to change it, specify a reader 
 before the transformation tag with your source directory.
-----
+```XML
 <reader path="YOUR_SRC_DIR">
-----
+```
 
 You can apply walkmod-imports-cleaner-plugin via walkmod. 
 

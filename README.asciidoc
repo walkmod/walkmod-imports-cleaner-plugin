@@ -7,30 +7,26 @@ image:https://travis-ci.org/rpau/walkmod-imports-cleaner-plugin.svg?branch=maste
 This is a walkmod plugin to remove unused imports in Java source files. It does not remove static or wildcard imports.
 
 == Usage
-1) Verify that your walkmod version is > = 2.0
 
-2) You can apply walkmod-imports-cleaner-plugin via  http://www.walkmod.com[walkmod] You just need to add the transformation tag in 
-your `${PROJECT}/walkmod.xml` file. 
+1) Verify that your walkmod version is > = 2.2.0
 
-```XML
-<!DOCTYPE walkmod PUBLIC "-//WALKMOD//DTD"  "http://www.walkmod.com/dtd/walkmod-1.1.dtd" >
-<walkmod>
-  <transformation type="imports-cleaner" />
-</walkmod>
-```
-Remember, by default, walkmod takes your source files from your `src/main/java` directory. So, if you need to change it, specify a reader 
-before the transformation tag with your source directory.
-```XML
-<reader path="YOUR_SRC_DIR">
-```
+2) Execute the following command to add this code transformation plugin as part of your conventions.
 
-You can apply walkmod-imports-cleaner-plugin via walkmod. 
+----
+walkmod add imports-cleaner
+----
 
-  $ walkmod apply
+3) Now, You see the results, executing: 
 
-Or, you can also check which would be the modified classes typing:
+----
+walkmod apply
+----
 
-  $ walkmod check
+Or, alternatively, you can also check which would be the modified classes typing:
+
+----
+walkmod check
+----
 
 == Contributing
 
